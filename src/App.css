@@ -1,0 +1,33 @@
+.App {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  display: flex;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+input {
+  width: 400px;
+  padding: 6px 12px;
+  display: block;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formControl {
+  margin-bottom: 1rem;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 4px;
+}
