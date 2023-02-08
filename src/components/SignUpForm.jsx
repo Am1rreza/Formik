@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useFormik } from "formik";
+
+const initialValues = {
+  name: "",
+  email: "",
+  password: "",
+};
 
 const SignUpForm = () => {
-  const [formValue, setFormValue] = useState({
-    name: "",
-    email: "",
-    password: "",
+  const formik = useFormik({
+    initialValues,
   });
 
-  // Handler
-  const changeHandler = (e) => {
-    setFormValue({ ...formValue, [e.target.id]: e.target.value });
-  };
-
+  // Handlers
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -24,8 +24,8 @@ const SignUpForm = () => {
           <input
             type="text"
             id="name"
-            value={formValue.name}
-            onChange={changeHandler}
+            value={formik.values.name}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="formControl">
@@ -33,8 +33,8 @@ const SignUpForm = () => {
           <input
             type="text"
             id="email"
-            value={formValue.email}
-            onChange={changeHandler}
+            value={formik.values.email}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="formControl">
@@ -42,8 +42,8 @@ const SignUpForm = () => {
           <input
             type="text"
             id="password"
-            value={formValue.password}
-            onChange={changeHandler}
+            value={formik.values.password}
+            onChange={formik.handleChange}
           />
         </div>
         <button type="submit">Submit</button>
