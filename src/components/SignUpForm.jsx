@@ -9,16 +9,12 @@ const initialValues = {
 const SignUpForm = () => {
   const formik = useFormik({
     initialValues,
+    onSubmit: (values) => console.log(values),
   });
-
-  // Handlers
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={formik.handleSubmit}>
         <div className="formControl">
           <label htmlFor="name">Name</label>
           <input
