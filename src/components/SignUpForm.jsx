@@ -12,9 +12,13 @@ const SignUpForm = () => {
     setFormValue({ ...formValue, [e.target.id]: e.target.value });
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="formControl">
           <label htmlFor="name">Name</label>
           <input
