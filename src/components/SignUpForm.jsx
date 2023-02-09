@@ -6,6 +6,7 @@ const initialValues = {
   email: "",
   number: "",
   password: "",
+  passwordConfirm: "",
 };
 
 const onSubmit = (values) => {
@@ -24,6 +25,9 @@ const validationSchema = Yup.object({
     .matches(/^\d+$/, "You Can Only use Numbers")
     .matches(/^[0-9]{11}/, "Invalid Phone Number"),
   password: Yup.string().required("Password is Required"),
+  passwordConfirm: Yup.string()
+    .required("Password Confirmation is Required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
 });
 
 const SignUpForm = () => {
@@ -60,12 +64,23 @@ const SignUpForm = () => {
         <div className="formControl">
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             id="password"
             {...formik.getFieldProps("password")}
           />
           {formik.errors.password && formik.touched.password && (
             <div className="error">{formik.errors.password}</div>
+          )}
+        </div>
+        <div className="formControl">
+          <label htmlFor="passwordConfirm">Password Confirmation</label>
+          <input
+            type="password"
+            id="passwordConfirm"
+            {...formik.getFieldProps("passwordConfirm")}
+          />
+          {formik.errors.passwordConfirm && formik.touched.passwordConfirm && (
+            <div className="error">{formik.errors.passwordConfirm}</div>
           )}
         </div>
         <button type="submit">Submit</button>

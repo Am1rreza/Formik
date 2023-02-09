@@ -2,6 +2,7 @@
   padding-top: 1.5rem;
   display: flex;
   justify-content: center;
+  white-space: pre-wrap;
 }
 
 label {
