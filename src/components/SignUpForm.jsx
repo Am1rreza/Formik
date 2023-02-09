@@ -1,6 +1,12 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "./common/Input";
+import RadioInput from "./common/RadioInput";
+
+const radioOptions = [
+  { label: "Male", value: "0" },
+  { label: "Female", value: "1" },
+];
 
 const initialValues = {
   name: "",
@@ -108,8 +114,8 @@ const SignUpForm = () => {
           type="password"
         />
         {/* Radio Button */}
-        <div className="formControl radio">
-          <div className="radioBox">
+        <div className="formControl">
+          {/* <div className="radioBox">
             <input
               type="radio"
               id="0"
@@ -119,8 +125,8 @@ const SignUpForm = () => {
               checked={formik.values.gender === "0"}
             />
             <label htmlFor="0">Male</label>
-          </div>
-          <div className="radioBox">
+          </div> */}
+          {/* <div className="radioBox">
             <input
               type="radio"
               id="1"
@@ -130,10 +136,12 @@ const SignUpForm = () => {
               checked={formik.values.gender === "1"}
             />
             <label htmlFor="1">Female</label>
-          </div>
-          {formik.errors.gender && formik.touched.gender && (
-            <div className="error genderError">{formik.errors.gender}</div>
-          )}
+          </div> */}
+          <RadioInput
+            name="gender"
+            formik={formik}
+            radioOptions={radioOptions}
+          />
         </div>
         <button
           className={!formik.isValid ? "forbidden" : ""}
