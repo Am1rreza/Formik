@@ -24,7 +24,12 @@ const validationSchema = Yup.object({
     .required("Phone Number is Required")
     .matches(/^\d+$/, "You Can Only use Numbers")
     .matches(/^[0-9]{11}/, "Invalid Phone Number"),
-  password: Yup.string().required("Password is Required"),
+  password: Yup.string()
+    .required("Password is Required")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/,
+      "Must Contain 8 Characters,\n1 Uppercase, 1 Lowercase and 1 Number"
+    ),
   passwordConfirm: Yup.string()
     .required("Password Confirmation is Required")
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
