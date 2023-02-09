@@ -4,6 +4,7 @@ import * as Yup from "yup";
 const initialValues = {
   name: "",
   email: "",
+  number: "",
   password: "",
 };
 
@@ -12,10 +13,15 @@ const onSubmit = (values) => {
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("Name is Required"),
+  name: Yup.string()
+    .required("Name is Required")
+    .min(3, "Name Length Cannot be Less than 3 Characters"),
   email: Yup.string()
     .email("Invalid Email Format")
     .required("Email is Required"),
+  number: Yup.string()
+    .required("Phone Number is Required")
+    .matches(/^[0-9]{11}/, "Invalid Phone Number"),
   password: Yup.string().required("Password is Required"),
 });
 
@@ -41,6 +47,13 @@ const SignUpForm = () => {
           <input type="text" id="email" {...formik.getFieldProps("email")} />
           {formik.errors.email && formik.touched.email && (
             <div className="error">{formik.errors.email}</div>
+          )}
+        </div>
+        <div className="formControl">
+          <label htmlFor="number">Phone Number</label>
+          <input type="text" id="number" {...formik.getFieldProps("number")} />
+          {formik.errors.number && formik.touched.number && (
+            <div className="error">{formik.errors.number}</div>
           )}
         </div>
         <div className="formControl">
