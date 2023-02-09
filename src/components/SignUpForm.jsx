@@ -6,10 +6,25 @@ const initialValues = {
   password: "",
 };
 
+const onSubmit = (values) => {
+  console.log(values);
+};
+
+const validate = (values) => {
+  let errors = {};
+
+  if (!values.name) errors.name = "Name is Required";
+  if (!values.email) errors.email = "Email is Required";
+  if (!values.password) errors.password = "Password is Required";
+
+  return errors;
+};
+
 const SignUpForm = () => {
   const formik = useFormik({
     initialValues,
-    onSubmit: (values) => console.log(values),
+    onSubmit,
+    validate,
   });
 
   return (
@@ -23,6 +38,9 @@ const SignUpForm = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
           />
+          {formik.errors.name && (
+            <div className="error">{formik.errors.name}</div>
+          )}
         </div>
         <div className="formControl">
           <label htmlFor="email">Email</label>
@@ -32,6 +50,9 @@ const SignUpForm = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
           />
+          {formik.errors.email && (
+            <div className="error">{formik.errors.email}</div>
+          )}
         </div>
         <div className="formControl">
           <label htmlFor="password">Password</label>
@@ -41,6 +62,9 @@ const SignUpForm = () => {
             value={formik.values.password}
             onChange={formik.handleChange}
           />
+          {formik.errors.password && (
+            <div className="error">{formik.errors.password}</div>
+          )}
         </div>
         <button type="submit">Submit</button>
       </form>
