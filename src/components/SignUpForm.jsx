@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Input from "./common/Input";
 
 const initialValues = {
   name: "",
@@ -48,28 +49,31 @@ const SignUpForm = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        <div className="formControl">
+        {/* <div className="formControl">
           <label htmlFor="name">Name</label>
           <input type="text" id="name" {...formik.getFieldProps("name")} />
           {formik.errors.name && formik.touched.name && (
             <div className="error">{formik.errors.name}</div>
           )}
-        </div>
-        <div className="formControl">
+        </div> */}
+        <Input formik={formik} name="name" label="Name" />
+        {/* <div className="formControl">
           <label htmlFor="email">Email</label>
           <input type="text" id="email" {...formik.getFieldProps("email")} />
           {formik.errors.email && formik.touched.email && (
             <div className="error">{formik.errors.email}</div>
           )}
-        </div>
-        <div className="formControl">
+        </div> */}
+        <Input formik={formik} name="email" label="Email" />
+        {/* <div className="formControl">
           <label htmlFor="number">Phone Number</label>
           <input type="text" id="number" {...formik.getFieldProps("number")} />
           {formik.errors.number && formik.touched.number && (
             <div className="error">{formik.errors.number}</div>
           )}
-        </div>
-        <div className="formControl">
+        </div> */}
+        <Input formik={formik} name="number" label="Phone Number" />
+        {/* <div className="formControl">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -79,8 +83,14 @@ const SignUpForm = () => {
           {formik.errors.password && formik.touched.password && (
             <div className="error">{formik.errors.password}</div>
           )}
-        </div>
-        <div className="formControl">
+        </div> */}
+        <Input
+          formik={formik}
+          name="password"
+          label="Password"
+          type="password"
+        />
+        {/* <div className="formControl">
           <label htmlFor="passwordConfirm">Password Confirmation</label>
           <input
             type="password"
@@ -90,7 +100,14 @@ const SignUpForm = () => {
           {formik.errors.passwordConfirm && formik.touched.passwordConfirm && (
             <div className="error">{formik.errors.passwordConfirm}</div>
           )}
-        </div>
+        </div> */}
+        <Input
+          formik={formik}
+          name="passwordConfirm"
+          label="Password Confirmation"
+          type="password"
+        />
+        {/* Radio Button */}
         <div className="formControl radio">
           <div className="radioBox">
             <input
