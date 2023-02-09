@@ -65,3 +65,7 @@ button {
 .radioBox input {
   cursor: pointer;
 }
+
+.genderError {
+  margin-top: 0;
+}

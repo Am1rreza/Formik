@@ -114,6 +114,9 @@ const SignUpForm = () => {
             />
             <label htmlFor="1">Female</label>
           </div>
+          {formik.errors.gender && formik.touched.gender && (
+            <div className="error genderError">{formik.errors.gender}</div>
+          )}
         </div>
         <button
           className={!formik.isValid ? "forbidden" : ""}
