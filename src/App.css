@@ -1,3 +1,4 @@
+/* Basic Styles */
 .App {
   padding-top: 1.5rem;
   display: flex;
@@ -45,6 +46,7 @@ button {
   cursor: not-allowed;
 }
 
+/* Radio Button Styles */
 .radioBox {
   display: flex;
   flex-direction: column;
@@ -70,10 +72,12 @@ button {
   cursor: pointer;
 }
 
+/* Select Options Styles */
 .formControl select {
   cursor: pointer;
 }
 
+/* CheckBox Styles */
 .checkBox {
   display: flex;
   flex-direction: column;
@@ -98,6 +102,7 @@ button {
   gap: 0 0.2rem;
 }
 
+/* Terms Section Styles */
 .termsCheckBox > div {
   display: flex;
   align-items: center;
