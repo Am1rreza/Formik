@@ -77,75 +77,40 @@ const SignUpForm = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        {/* <div className="formControl">
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" {...formik.getFieldProps("name")} />
-          {formik.errors.name && formik.touched.name && (
-            <div className="error">{formik.errors.name}</div>
-          )}
-        </div> */}
         <Input formik={formik} name="name" label="Name" />
-        {/* <div className="formControl">
-          <label htmlFor="email">Email</label>
-          <input type="text" id="email" {...formik.getFieldProps("email")} />
-          {formik.errors.email && formik.touched.email && (
-            <div className="error">{formik.errors.email}</div>
-          )}
-        </div> */}
+
         <Input formik={formik} name="email" label="Email" />
-        {/* <div className="formControl">
-          <label htmlFor="number">Phone Number</label>
-          <input type="text" id="number" {...formik.getFieldProps("number")} />
-          {formik.errors.number && formik.touched.number && (
-            <div className="error">{formik.errors.number}</div>
-          )}
-        </div> */}
+
         <Input formik={formik} name="number" label="Phone Number" />
-        {/* <div className="formControl">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            {...formik.getFieldProps("password")}
-          />
-          {formik.errors.password && formik.touched.password && (
-            <div className="error">{formik.errors.password}</div>
-          )}
-        </div> */}
+
         <Input
           formik={formik}
           name="password"
           label="Password"
           type="password"
         />
-        {/* <div className="formControl">
-          <label htmlFor="passwordConfirm">Password Confirmation</label>
-          <input
-            type="password"
-            id="passwordConfirm"
-            {...formik.getFieldProps("passwordConfirm")}
-          />
-          {formik.errors.passwordConfirm && formik.touched.passwordConfirm && (
-            <div className="error">{formik.errors.passwordConfirm}</div>
-          )}
-        </div> */}
+
         <Input
           formik={formik}
           name="passwordConfirm"
           label="Password Confirmation"
           type="password"
         />
+
         <RadioInput name="gender" formik={formik} radioOptions={radioOptions} />
+
         <SelectComponent
           name="nationality"
           formik={formik}
           selectOptions={selectOptions}
         />
+
         <CheckBox
           name="interests"
           formik={formik}
           checkBoxOptions={checkBoxOptions}
         />
+
         {/* Terms & Conditions */}
         <div className="formControl termsCheckBox">
           <div>
