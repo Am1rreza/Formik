@@ -161,7 +161,7 @@ const SignUpForm = () => {
         <button
           className={!formik.isValid ? "forbidden" : ""}
           type="submit"
-          disabled={!formik.isValid}
+          // disabled={!formik.isValid}
         >
           Submit
         </button>
