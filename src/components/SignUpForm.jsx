@@ -2,6 +2,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "./common/Input";
 import RadioInput from "./common/RadioInput";
+import SelectComponent from "./common/SelectComponent";
+
+const selectOptions = [
+  { label: "Select Nationality", value: "" },
+  { label: "Iran", value: "0" },
+  { label: "United States", value: "1" },
+  { label: "Germany", value: "2" },
+];
 
 const radioOptions = [
   { label: "Male", value: "0" },
@@ -15,6 +23,7 @@ const initialValues = {
   password: "",
   passwordConfirm: "",
   gender: "",
+  nationality: "",
 };
 
 const onSubmit = (values) => {
@@ -42,6 +51,7 @@ const validationSchema = Yup.object({
     .required("Password Confirmation is Required")
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
   gender: Yup.string().required("Gender is Required"),
+  nationality: Yup.string().required("Nationality is Required"),
 });
 
 const SignUpForm = () => {
@@ -143,6 +153,11 @@ const SignUpForm = () => {
             radioOptions={radioOptions}
           />
         </div>
+        <SelectComponent
+          name="nationality"
+          formik={formik}
+          selectOptions={selectOptions}
+        />
         <button
           className={!formik.isValid ? "forbidden" : ""}
           type="submit"
