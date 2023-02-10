@@ -91,3 +91,13 @@ button {
   align-items: center;
   gap: 0 0.2rem;
 }
+
+.termsCheckBox > div {
+  display: flex;
+  align-items: center;
+  gap: 0 0.2rem;
+}
+
+.termsCheckBox label {
+  margin: 0;
+}

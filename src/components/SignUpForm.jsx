@@ -35,6 +35,7 @@ const initialValues = {
   gender: "",
   nationality: "",
   interests: [],
+  terms: false,
 };
 
 const validationSchema = Yup.object({
@@ -62,6 +63,7 @@ const validationSchema = Yup.object({
   interests: Yup.array()
     .min(1, "At least Select One Expertise")
     .required("Selecting Checkbox is Required"),
+  terms: Yup.boolean().oneOf([true], "Must Accept Terms and Conditions"),
 });
 
 const SignUpForm = () => {
@@ -173,6 +175,23 @@ const SignUpForm = () => {
           formik={formik}
           checkBoxOptions={checkBoxOptions}
         />
+        {/* Terms & Conditions */}
+        <div className="formControl termsCheckBox">
+          <div>
+            <input
+              type="checkbox"
+              id="terms"
+              name="terms"
+              value={true}
+              checked={formik.values.terms}
+              onChange={formik.handleChange}
+            />
+            <label htmlFor="terms">Accept Terms & Conditions</label>
+          </div>
+          {formik.errors.terms && formik.touched.terms && (
+            <div className="error">{formik.errors.terms}</div>
+          )}
+        </div>
         <button
           className={!formik.isValid ? "forbidden" : ""}
           type="submit"
