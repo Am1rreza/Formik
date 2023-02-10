@@ -2,7 +2,7 @@ import React from "react";
 
 const RadioInput = ({ name, formik, radioOptions }) => {
   return (
-    <section className="radioBox">
+    <div className="formControl radioBox">
       <div>
         {radioOptions.map((item) => {
           return (
@@ -23,7 +23,7 @@ const RadioInput = ({ name, formik, radioOptions }) => {
       {formik.errors[name] && formik.touched[name] && (
         <div className="error">{formik.errors[name]}</div>
       )}
-    </section>
+    </div>
   );
 };
 

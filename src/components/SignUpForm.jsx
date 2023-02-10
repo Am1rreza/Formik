@@ -135,36 +135,7 @@ const SignUpForm = () => {
           label="Password Confirmation"
           type="password"
         />
-        {/* Radio Button */}
-        <div className="formControl">
-          {/* <div className="radioBox">
-            <input
-              type="radio"
-              id="0"
-              value="0"
-              name="gender"
-              onChange={formik.handleChange}
-              checked={formik.values.gender === "0"}
-            />
-            <label htmlFor="0">Male</label>
-          </div> */}
-          {/* <div className="radioBox">
-            <input
-              type="radio"
-              id="1"
-              value="1"
-              name="gender"
-              onChange={formik.handleChange}
-              checked={formik.values.gender === "1"}
-            />
-            <label htmlFor="1">Female</label>
-          </div> */}
-          <RadioInput
-            name="gender"
-            formik={formik}
-            radioOptions={radioOptions}
-          />
-        </div>
+        <RadioInput name="gender" formik={formik} radioOptions={radioOptions} />
         <SelectComponent
           name="nationality"
           formik={formik}
@@ -195,7 +166,7 @@ const SignUpForm = () => {
         <button
           className={!formik.isValid ? "forbidden" : ""}
           type="submit"
-          disabled={!formik.isValid}
+          // disabled={!formik.isValid}
         >
           Submit
         </button>
