@@ -1,8 +1,18 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import CheckBox from "./common/CheckBox";
 import Input from "./common/Input";
 import RadioInput from "./common/RadioInput";
 import SelectComponent from "./common/SelectComponent";
+
+const onSubmit = (values) => {
+  console.log(values);
+};
+
+const checkBoxOptions = [
+  { label: "Frontend", value: "frontend" },
+  { label: "Backend", value: "backend" },
+];
 
 const selectOptions = [
   { label: "Select Nationality", value: "" },
@@ -24,10 +34,7 @@ const initialValues = {
   passwordConfirm: "",
   gender: "",
   nationality: "",
-};
-
-const onSubmit = (values) => {
-  console.log(values);
+  interests: [],
 };
 
 const validationSchema = Yup.object({
@@ -52,6 +59,9 @@ const validationSchema = Yup.object({
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
   gender: Yup.string().required("Gender is Required"),
   nationality: Yup.string().required("Nationality is Required"),
+  interests: Yup.array()
+    .min(1, "At least Select One Expertise")
+    .required("Selecting Checkbox is Required"),
 });
 
 const SignUpForm = () => {
@@ -158,10 +168,15 @@ const SignUpForm = () => {
           formik={formik}
           selectOptions={selectOptions}
         />
+        <CheckBox
+          name="interests"
+          formik={formik}
+          checkBoxOptions={checkBoxOptions}
+        />
         <button
           className={!formik.isValid ? "forbidden" : ""}
           type="submit"
-          // disabled={!formik.isValid}
+          disabled={!formik.isValid}
         >
           Submit
         </button>

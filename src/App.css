@@ -73,3 +73,21 @@ button {
 .formControl select {
   cursor: pointer;
 }
+
+.checkBox {
+  display: flex;
+  gap: 0 1.5rem;
+}
+
+.checkBox label,
+.checkBox input {
+  cursor: pointer;
+  margin: 0;
+}
+
+.checkBox div {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0 0.2rem;
+}

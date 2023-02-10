@@ -13,7 +13,7 @@ const RadioInput = ({ name, formik, radioOptions }) => {
                 value={item.value}
                 name={name}
                 onChange={formik.handleChange}
-                checked={formik.values.gender === item.value}
+                checked={formik.values[name] === item.value}
               />
               <label htmlFor={item.value}>{item.label}</label>
             </div>
