@@ -76,7 +76,7 @@ button {
 
 .checkBox {
   display: flex;
-  gap: 0 1.5rem;
+  flex-direction: column;
 }
 
 .checkBox label,
@@ -85,8 +85,14 @@ button {
   margin: 0;
 }
 
-.checkBox div {
+.checkBox > div {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0 1.5rem;
+}
+
+.checkBox > div > div {
   display: flex;
   align-items: center;
   gap: 0 0.2rem;
